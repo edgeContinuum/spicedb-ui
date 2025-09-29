@@ -233,6 +233,7 @@ async function fetchRelationshipsForType(spicedbUrl, token, resourceType, resour
 // Helper function to extract resource types from schema
 function extractResourceTypesFromSchema(schemaText) {
     // const definitionRegex = /definition\s+(\w+)\s*{/g;
+    console.log('Extracting resource types from schema text:', schemaText);
     const definitionRegex = /definition\s+([^{\s]+)\s*{/g;
 
     const types = [];
