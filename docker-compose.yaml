@@ -1,0 +1,10 @@
+# docker-compose.yml
+version: '3.8'
+services:
+  spicedb-ui:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - SPICEDB_URL=http://localhost:8443
+      - SPICEDB_TOKEN=averysecretpresharedkey
