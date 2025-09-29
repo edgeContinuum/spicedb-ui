@@ -5,6 +5,7 @@ services:
     build: .
     ports:
       - "3000:3000"
+    network_mode: host
     environment:
-      - SPICEDB_URL=http://localhost:8443
-      - SPICEDB_TOKEN=averysecretpresharedkey
+      SPICEDB_URL: http://localhost:8443
+      SPICEDB_TOKEN: averysecretpresharedkey
