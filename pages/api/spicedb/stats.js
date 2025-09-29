@@ -53,7 +53,7 @@ export default async function handler(req, res) {
 
 // Helper function to extract namespaces from schema
 function extractNamespacesFromSchema(schemaText) {
-    const definitionRegex = /definition\s+(\w+)\s*{/g;
+    const definitionRegex = /definition\s+([^{\s]+)\s*{/g;
     const namespaces = [];
     let match;
 

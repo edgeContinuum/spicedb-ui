@@ -188,7 +188,7 @@ async function getNamespacesFromSchema(spicedbUrl, token) {
     const data = await response.json();
     const schemaText = data.schema_text || '';
 
-    const definitionRegex = /definition\s+(\w+)\s*{/g;
+    const definitionRegex = /definition\s+([^{\s]+)\s*{/g;
     const namespaces = [];
     let match;
 

@@ -29,7 +29,7 @@ export default async function handler(req, res) {
                     if (schemaResponse.ok) {
                         const schemaData = await schemaResponse.json();
                         const resourceTypes = extractResourceTypesFromSchema(schemaData.schemaText || '');
-
+                        console.log('Discovered resource types from schema:', resourceTypes);
                         // Fetch relationships for each resource type
                         for (const type of resourceTypes) {
                             try {
@@ -232,14 +232,17 @@ async function fetchRelationshipsForType(spicedbUrl, token, resourceType, resour
 
 // Helper function to extract resource types from schema
 function extractResourceTypesFromSchema(schemaText) {
-    const definitionRegex = /definition\s+(\w+)\s*{/g;
+    // const definitionRegex = /definition\s+(\w+)\s*{/g;
+    const definitionRegex = /definition\s+([^{\s]+)\s*{/g;
+
     const types = [];
     let match;
-
+    console.log('Extracting resource types from schema text of length', schemaText.length);
     while ((match = definitionRegex.exec(schemaText)) !== null) {
         types.push(match[1]);
+        console.log('Found resource type:', match[1]);
     }
-
+    console.log('All extracted resource types:', types);
     return types;
 }
 

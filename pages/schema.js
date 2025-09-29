@@ -47,7 +47,8 @@ const Schema = () => {
 
     const parseNamespaces = () => {
         // Parse namespaces from current schema
-        const namespaceRegex = /definition\s+(\w+)\s*\{/g;
+        // const namespaceRegex = /definition\s+(\w+)\s*\{/g;
+        const namespaceRegex = /definition\s+([^{\s]+)\s*{/g;
         const found = [];
         let match;
 
